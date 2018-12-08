@@ -10,7 +10,7 @@
         <input type="text" v-model="todo">
         <button @click="addTodo">add</button>
         <ul>
-            <li v-for="todo in todos" v-if="todo.done == false" @click="todo.done = true">{{todo.text}}</li>
+            <todo-item v-for="todo in todos"  :todo='todo' v-if="todo.done == false"></todo-item>
         </ul>
         <h3>completed</h3>
         <p>*click to mark as done</p>

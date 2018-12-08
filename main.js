@@ -1,3 +1,8 @@
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li @click="todo.done = true">{{ todo.text }}</li>'
+})
+
 new Vue({
     el: '#app',
     data: {
