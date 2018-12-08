@@ -7,13 +7,13 @@
 <body>
     <div id="app">
         <h1>todo//</h1>
-        <input type="text">
-        <button>add</button>
+        <input type="text" v-model="todo">
+        <button @click="addTodo">add</button>
         <ul>
-            <li v-for="todo in todos" v-if="todo.done == false">{{todo.text}}</li>
+            <li v-for="todo in todos" v-if="todo.done == false" @click="todo.done = true">{{todo.text}}</li>
         </ul>
         <h3>completed</h3>
-        <p>*double click to mark as done</p>
+        <p>*click to mark as done</p>
         <ul>
             <li v-for="todo in todos" v-if="todo.done == true">{{todo.text}}</li>
         </ul>

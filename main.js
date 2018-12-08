@@ -1,6 +1,7 @@
 new Vue({
     el: '#app',
     data: {
+        todo: '',
         todos: [
             {   
                 done: false,
@@ -15,5 +16,10 @@ new Vue({
                 text: 'done'
             }
         ]    
+    },
+    methods: {
+        addTodo: function() {
+            this.todos.push({done: false, text: this.todo})
+        }
     }
 })
