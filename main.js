@@ -24,7 +24,15 @@ new Vue({
     },
     methods: {
         addTodo: function() {
+            if (this.isValid) 
             this.todos.push({done: false, text: this.todo})
+            this.todo = ''
+        }
+    },
+    computed: {
+        isValid: function() {
+            if (this.todo.trim() == '') return false
+            else return true
         }
     }
 })
