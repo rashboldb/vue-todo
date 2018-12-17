@@ -15,9 +15,7 @@
             <button @click="addTodo" class="btn btn-primary ml-2">add</button>
         </div>
         <div class="row justify-content-start">
-            <ul>
-                <todo-item v-for="todo in todos"  :todo='todo' v-if="todo.done == false"></todo-item>
-            </ul>
+            <todo-list :todos="uncompleted"></todo-list>
         </div>
         <div class="row justify-content-center">
             <h3>completed</h3>
@@ -26,9 +24,7 @@
             <p>*click to mark as done</p>
         </div>
         <div class="row justify-content-start">
-            <ul>
-                <li v-for="todo in todos" v-if="todo.done == true">{{todo.text}}</li>
-            </ul>
+            <todo-list :todos="completed"></todo-list>
         </div>
         <div class="row justify-content-center">
             <p>scratch prod 2018</p>

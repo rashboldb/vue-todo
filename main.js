@@ -1,6 +1,10 @@
-Vue.component('todo-item', {
-    props: ['todo'],
-    template: '<li @click="todo.done = true">{{ todo.text }}</li>'
+Vue.component('todo-list', {
+    props: ['todos'],
+    template: `
+            <ul>
+                <li v-for="todo in todos" @click="todo.done=true">{{todo.text}}</li>
+            </ul>
+    `
 })
 
 new Vue({
@@ -33,6 +37,12 @@ new Vue({
         isValid: function() {
             if (this.todo.trim() == '') return false
             else return true
+        },
+        uncompleted: function() {
+            return this.todos.filter(todo => todo.done == false)
+        },
+        completed: function() {
+            return this.todos.filter(todo => todo.done == true)
         }
     }
 })
